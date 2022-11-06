@@ -5,23 +5,32 @@ const Layout = () => {
   return (
     <>
       <header>
+        <div className="username"> Hello, user</div>
         <div className="navigation">
           <NavLink
-            to="/"
+            to="/about"
             end={true}
             style={({ isActive }) =>
               isActive ? { color: "black" } : { color: "gray" }
             }
           >
-            Albums
+            About
           </NavLink>
           <NavLink
-            to="/users"
+            to="/notes"
             style={({ isActive }) =>
               isActive ? { color: "black" } : { color: "gray" }
             }
           >
-            Users
+            Notes
+          </NavLink>
+          <NavLink
+            to="/login"
+            style={({ isActive }) =>
+              isActive ? { color: "black" } : { color: "gray" }
+            }
+          >
+            Log out
           </NavLink>
         </div>
       </header>

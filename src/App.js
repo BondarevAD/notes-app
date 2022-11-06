@@ -9,6 +9,7 @@ import "./App.css";
 import { SignUp } from "./pages/SignUp";
 import { Notfoundpage } from "./pages/Notfoundpage";
 import { Login } from "./pages/Login";
+import { About } from "./pages/About";
 
 import { Layout } from "./components/Layout";
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
       {
         path: "*",
