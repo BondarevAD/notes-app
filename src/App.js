@@ -5,13 +5,16 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import "./App.css";
 import { SignUp } from "./pages/SignUp";
 import { Notfoundpage } from "./pages/Notfoundpage";
 import { Login } from "./pages/Login";
 import { About } from "./pages/About";
 
 import { Layout } from "./components/Layout";
+import { Home } from "./pages/Home";
+
+import { loader as signUpLoader } from "./pages/SignUp";
+import "./main.css";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <SignUp />,
+        element: <Home />,
       },
       {
         path: "/login",

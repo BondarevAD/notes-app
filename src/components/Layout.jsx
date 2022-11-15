@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import "./Layout.css";
+
 const Layout = () => {
   return (
-    <>
-      <header>
-        <div className="username"> Hello, user</div>
-        <div className="navigation">
+    <div className="flex flex-col">
+      <header className="flex flex-row justify-around">
+        <div> Hello, user</div>
+        <div className="flex gap-5">
           <NavLink
             to="/about"
             end={true}
@@ -35,7 +35,7 @@ const Layout = () => {
         </div>
       </header>
 
-      <main className="container">
+      <main className="p-2">
         <Outlet />
       </main>
 
@@ -43,7 +43,7 @@ const Layout = () => {
         <span>Student: Andrey Bondarev</span>
         <span>BSU: 2022</span>
       </footer>
-    </>
+    </div>
   );
 };
 
