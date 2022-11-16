@@ -16,17 +16,17 @@ import { Home } from "./pages/Home";
 
 import { loader as signUpLoader } from "./pages/SignUp";
 import "./main.css";
+import UserContextProvider from "./components/UserContextProvider";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
-    loader: () => {
-      const user = localStorage.getItem("user");
-      if (!user) {
-        return redirect("/login");
-      }
-    },
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "/",
@@ -49,6 +49,10 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <UserContextProvider>
+      <RouterProvider router={router} />;
+    </UserContextProvider>
+  );
 }
 export default App;

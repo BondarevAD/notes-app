@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import { UserContext, useUserContext } from "../components/UserContextProvider";
+
 function Home() {
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const user = useUserContext();
+  console.log(user);
   return <div>Hello, {user.email}!</div>;
 }
 
