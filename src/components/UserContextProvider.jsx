@@ -6,31 +6,30 @@ import {
   useState,
 } from "react";
 
-export const UserContext = createContext({ email: "", setUser: () => {} });
+export const UserContext = createContext({ user: {}, setUser: () => {} });
 
 export const useUserContext = () => {
   return useContext(UserContext);
 };
 
 export default function UserContextProvider({ children }) {
-  const [email, setEmail] = useState(() => {
+  const [user, setUser] = useState(() => {
     try {
-      const user = JSON.parse(localStorage.getItem("user") || "{}");
-      return user.email;
+      return JSON.parse(localStorage.getItem("user") || "{}");
     } catch (e) {
-      return "";
+      return {};
     }
   });
 
   const handleSetUser = useCallback((user) => {
     const userString = JSON.stringify(user);
     localStorage.setItem("user", userString);
-    setEmail(user.email);
+    setUser(user);
   }, []);
 
   const value = useMemo(
-    () => ({ email, setUser: handleSetUser }),
-    [email, handleSetUser]
+    () => ({ user, setUser: handleSetUser }),
+    [user, handleSetUser]
   );
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

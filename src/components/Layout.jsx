@@ -1,7 +1,12 @@
 import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { useUserContext } from "./UserContextProvider";
 
 const Layout = () => {
+  const user = useUserContext();
+  const handleLogout = () => {
+    user.setUser({ email: "" });
+  };
   return (
     <div className="flex flex-col">
       <header className="flex flex-row justify-around">
@@ -24,14 +29,9 @@ const Layout = () => {
           >
             Notes
           </NavLink>
-          <NavLink
-            to="/login"
-            style={({ isActive }) =>
-              isActive ? { color: "black" } : { color: "gray" }
-            }
-          >
-            Log out
-          </NavLink>
+          <button onClick={handleLogout} className="text-red-500">
+            Log Out
+          </button>
         </div>
       </header>
 
