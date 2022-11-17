@@ -5,15 +5,15 @@ import { UserContext, useUserContext } from "../components/UserContextProvider";
 
 const Login = () => {
   const navigate = useNavigate();
-  const context = useUserContext();
+  const userContext = useUserContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSetEmail = useCallback((e) => setEmail(e.target.value), []);
   const handleSetPassword = useCallback((e) => setPassword(e.target.value), []);
   const handleLogin = useCallback(() => {
-    localStorage.setItem("user", JSON.stringify({ email, password }));
+    userContext.setUser({ email, password });
     navigate("/");
-  }, [email, password]);
+  }, [email, userContext, password]);
   return (
     <div className="flex flex-col items-center gap-1">
       <input
