@@ -17,6 +17,10 @@ import { Home } from "./pages/Home";
 import "./main.css";
 import UserContextProvider from "./components/UserContextProvider";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { Notes } from "./pages/Notes";
+
+import { loader as notesLoader } from "./pages/Notes";
+import AddNote from "./pages/AddNote";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +38,15 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/notes",
+        loader: notesLoader,
+        element: <Notes />,
+      },
+      {
+        path: "/addNote",
+        element: <AddNote />,
       },
       {
         path: "*",
