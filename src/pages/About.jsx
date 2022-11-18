@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
+import { useUserContext } from "../components/UserContextProvider";
 
 const About = () => {
-  const user = localStorage.getItem("user");
+  const { user } = useUserContext();
   return (
-    <>
-      <h1>About me</h1>
-      <div>Hello, {user.ema}!</div>
-      <div className="flex gap-1">
-        <div className="email">Email: </div>
-        <div className="date">Date sign up: </div>
+    <div className={"flex-col w-screen"}>
+      <h1 className={""}>About me</h1>
+      <div className="flex-col gap-1">
+        <div className="email">Email: {user.email}</div>
+        <div className="date">Date sign up: {user.createdAt}</div>
       </div>
       <Link to={"/notes"}>Go to notes</Link>
-    </>
+    </div>
   );
 };
 

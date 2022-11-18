@@ -14,7 +14,6 @@ import { About } from "./pages/About";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
 
-import { loader as signUpLoader } from "./pages/SignUp";
 import "./main.css";
 import UserContextProvider from "./components/UserContextProvider";
 import { ProtectedRoute } from "./components/ProtectedRoute";

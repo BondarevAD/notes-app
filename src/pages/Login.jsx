@@ -36,6 +36,7 @@ const Login = () => {
         placeholder="email"
         value={email}
         onChange={handleSetEmail}
+        type={"email"}
       ></input>
       <input
         placeholder="password"
@@ -43,7 +44,6 @@ const Login = () => {
         value={password}
         onChange={handleSetPassword}
       ></input>
-      <div> {email + " " + password} </div>
       <button onClick={handleLogin}>Login</button>
       <Link to={"/signup"}> Don't have an account. Register</Link>
     </div>
