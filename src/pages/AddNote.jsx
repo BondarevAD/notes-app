@@ -43,7 +43,7 @@ export default function AddNote() {
           className={"w-fit"}
         ></input>
         <input
-          placeholder={"Note text..."}
+          placeholder={"EditNote text..."}
           value={text}
           type={"text"}
           onChange={handleSetText}

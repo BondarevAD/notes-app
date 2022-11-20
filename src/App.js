@@ -20,7 +20,10 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Notes } from "./pages/Notes";
 
 import { loader as notesLoader } from "./pages/Notes";
+import { loader as editNoteLoader } from "./pages/EditNote";
 import AddNote from "./pages/AddNote";
+import EditNote from "./pages/EditNote";
+import Note from "./pages/Note";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +50,16 @@ const router = createBrowserRouter([
       {
         path: "/addNote",
         element: <AddNote />,
+      },
+      {
+        path: "/editNote/:id",
+        loader: editNoteLoader,
+        element: <EditNote />,
+      },
+      {
+        path: "/notes/:id",
+        loader: editNoteLoader,
+        element: <Note />,
       },
       {
         path: "*",

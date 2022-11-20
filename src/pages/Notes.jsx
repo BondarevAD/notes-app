@@ -12,9 +12,8 @@ export const loader = () => {
 };
 
 export function Notes() {
-  const notes = useLoaderData().reverse();
+  const notes = useLoaderData();
 
-  console.log(notes);
   return (
     <div className={"flex flex-col w-screen items-center gap-6"}>
       <h1 className={"justify-self-end text-4xl"}>Notes:</h1>
@@ -23,9 +22,11 @@ export function Notes() {
       </Link>
 
       <div className={"flex flex-col gap-2"}>
-        {notes.map((note) => (
-          <Note note={note} />
-        ))}
+        {notes
+          .sort((a, b) => a.id < b.id)
+          .map((note) => (
+            <Note note={note} />
+          ))}
       </div>
     </div>
   );
