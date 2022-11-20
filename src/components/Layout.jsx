@@ -1,50 +1,55 @@
-import { Outlet } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import { useUserContext } from "./UserContextProvider";
 
-const Layout = () => {
+export default function Layout() {
   const user = useUserContext();
   const handleLogout = () => {
     user.setUser({ email: "" });
   };
+
   return (
-    <div className="flex flex-col">
-      <header className="flex flex-row justify-around">
-        <div> Hello, user</div>
-        <div className="flex gap-5">
+    <div className="p-2">
+      <header className="flex  w-full justify-between">
+        <span className=" pl-10 font-medium">Hello, {user.user.email}</span>
+        <div className="flex justify-end text-gray-400">
           <NavLink
             to="/about"
             end={true}
-            style={({ isActive }) =>
-              isActive ? { color: "black" } : { color: "gray" }
+            className={({ isActive }) =>
+              isActive ? "font-medium text-black pr-10" : "pr-10"
             }
           >
             About
           </NavLink>
           <NavLink
-            to="/notes"
-            style={({ isActive }) =>
-              isActive ? { color: "black" } : { color: "gray" }
+            to="/"
+            end={true}
+            className={({ isActive }) =>
+              isActive ? "font-medium text-black pr-10" : "pr-10"
             }
           >
             Notes
           </NavLink>
-          <button onClick={handleLogout} className="text-red-500">
-            Log Out
-          </button>
+          <NavLink
+            className="  pr-10 text-red-500"
+            to="/login"
+            end={true}
+            onClick={handleLogout}
+          >
+            Log out
+          </NavLink>
         </div>
       </header>
-
-      <main className="p-2">
+      <main>
         <Outlet />
       </main>
-
-      <footer>
-        <span>Student: Andrey Bondarev</span>
-        <span>BSU: 2022</span>
+      <footer className="mt-10">
+        <hr></hr>
+        <div className="flex justify-between pr-10 pl-10 text-gray-400">
+          <span>Created by: Bondarev Andrey</span>{" "}
+          <span className="">BSU 2022</span>
+        </div>
       </footer>
     </div>
   );
-};
-
-export { Layout };
+}

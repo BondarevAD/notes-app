@@ -1,4 +1,4 @@
-import { Await, useLoaderData } from "react-router-dom";
+import { Await, useLoaderData, useNavigate } from "react-router-dom";
 import * as PropTypes from "prop-types";
 import { Suspense, useState } from "react";
 import { useCallback } from "react";
@@ -15,6 +15,7 @@ function EditNote() {
   const note = useLoaderData();
   const [title, setTitle] = useState(note.title);
   const [body, setBody] = useState(note.body);
+  const navigate = useNavigate();
 
   const handleSetName = useCallback((e) => setTitle(e.target.value), []);
   const handleSetText = useCallback((e) => setBody(e.target.value), []);
@@ -31,7 +32,7 @@ function EditNote() {
       },
     })
       .then((response) => response.json())
-      .then((json) => console.log(json));
+      .then((json) => navigate("/notes"));
   };
 
   return (
@@ -42,16 +43,16 @@ function EditNote() {
           placeholder={"Name"}
           value={title}
           onChange={handleSetName}
-          className={"w-fit"}
+          className={"bg-gray-200 p-2 text-4xl"}
         ></input>
         <input
           placeholder={"EditNote text..."}
           value={body}
           type={"text"}
           onChange={handleSetText}
-          className={"w-fit"}
+          className={"bg-gray-200 p-2"}
         ></input>
-        <button className={"bg-gray-400 w-20 h-9"} onClick={handleEdit}>
+        <button className={"bg-gray-200 p-2"} onClick={handleEdit}>
           Edit
         </button>
       </div>

@@ -26,8 +26,9 @@ const Login = () => {
   }, [email, userContext, password]);
 
   useEffect(() => {
+    console.log(userContext.user);
     if (userContext.user?.email) {
-      navigate("/");
+      navigate("/notes");
     }
   }, [navigate, userContext.user]);
   return (

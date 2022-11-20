@@ -26,6 +26,8 @@ export default function AddNote() {
         "Content-Type": "application/json",
       },
     });
+
+    navigate("/notes");
   };
   return (
     <>
@@ -40,14 +42,14 @@ export default function AddNote() {
           placeholder={"Name"}
           value={name}
           onChange={handleSetName}
-          className={"w-fit"}
+          className={"bg-gray-200 p-2 text-4xl"}
         ></input>
         <input
           placeholder={"EditNote text..."}
           value={text}
           type={"text"}
           onChange={handleSetText}
-          className={"w-fit"}
+          className={"bg-gray-200 p-2"}
         ></input>
         <button className={"bg-gray-400 w-20 h-9"} onClick={handleCreate}>
           Create

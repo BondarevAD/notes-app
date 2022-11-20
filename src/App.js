@@ -11,7 +11,7 @@ import { Notfoundpage } from "./pages/Notfoundpage";
 import { Login } from "./pages/Login";
 import { About } from "./pages/About";
 
-import { Layout } from "./components/Layout";
+import Layout from "./components/Layout";
 import { Home } from "./pages/Home";
 
 import "./main.css";

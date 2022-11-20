@@ -18,7 +18,7 @@ export function Notes() {
     <div className={"flex flex-col w-screen items-center gap-6"}>
       <h1 className={"justify-self-end text-4xl"}>Notes:</h1>
       <Link to={"/AddNote"}>
-        <button className={"bg-gray-400 w-32 h-10 "}>Add new note</button>
+        <button className={"bg-gray-200 w-32 h-10 "}>Add new note</button>
       </Link>
 
       <div className={"flex flex-col gap-2"}>

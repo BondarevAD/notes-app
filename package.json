@@ -40,6 +40,8 @@
     ]
   },
   "devDependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "json-server": "^0.17.1",
     "json-server-auth": "^2.1.0",
     "prettier": "^2.7.1",

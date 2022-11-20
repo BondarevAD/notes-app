@@ -12,10 +12,10 @@ export const useUserContext = () => {
   return useContext(UserContext);
 };
 
-export default function UserContextProvider({ children }) {
+function UserContextProvider({ children }) {
   const [user, setUser] = useState(() => {
     try {
-      return JSON.parse(localStorage.getItem("user") || "{}");
+      return JSON.parse(localStorage.getItem("user"));
     } catch (e) {
       return {};
     }
@@ -34,3 +34,5 @@ export default function UserContextProvider({ children }) {
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
+
+export default UserContextProvider;
